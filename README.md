@@ -1,6 +1,6 @@
-# rutech_mobile
-
-A new Flutter project.
+# Flutter App for Russian Tech
+![Google-flutter-logo](https://github.com/RussianTech-IT/Flutter/assets/107361187/f39e8b38-a59c-4308-90ec-df074991880a)
+This repository contains the source code of a cross-platform application for Android and iOS mobile operating systems
 
 ## Getting Started
 
