@@ -1,5 +1,10 @@
 # Flutter App for Russian Tech
-![Google-flutter-logo](https://github.com/RussianTech-IT/Flutter/assets/107361187/7008abdf-782f-4e72-b0cb-cf2757b1ab53)
+<h1 align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://storage.googleapis.com/cms-storage-bucket/6e19fee6b47b36ca613f.png">
+      <img alt="Flutter" src="https://storage.googleapis.com/cms-storage-bucket/c823e53b3a1a7b0d36a9.png">
+    </picture>
+  </h1>
 This repository contains the source code of a cross-platform application for Android and iOS mobile operating systems
 
 ## Getting Started
