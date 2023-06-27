@@ -8,6 +8,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // final List<Map<String, dynamic>> _languages = [
+  //   {'name': 'JavaScript', 'icon': Icons.code},
+  //   {'name': 'Python', 'icon': Icons.code},
+  //   {'name': 'Java', 'icon': Icons.code},
+  //   {'name': 'C++', 'icon': Icons.code},
+  //   {'name': 'Swift', 'icon': Icons.code},
+  //   {'name': 'Ruby', 'icon': Icons.code},
+  // ]; // test array for list languages
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +44,17 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 30,
                             fontWeight: FontWeight.bold),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.black38,
-                            borderRadius: BorderRadius.circular(12)),
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
-                          Icons.notifications,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: () => print('Test: Click favorite icon ✅'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black38,
+                              borderRadius: BorderRadius.circular(12)),
+                          padding: EdgeInsets.all(12),
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
@@ -78,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Выберите\nязык программирования",
+                        "Russian Tech - new features!",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 19,
@@ -95,7 +107,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(25),
-                color: Colors.grey[100],
+                color: Color.fromRGBO(21, 21, 34, 0.9),
                 child: Center(
                   child: Column(
                     children: [
@@ -103,15 +115,48 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Здесь будет список языко как в дизайне',
+                            'Выберите язык программирования',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14
-                              ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.white),
                           ),
-                          Icon(Icons.more_horiz)
+                          Icon(Icons.more_horiz, color: Colors.white),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      // list languages
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.javascript, size: 50,),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // title
+                                Text(
+                                  'JavaScript',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                                // subtitle
+                                Text('Введение в JavaScript')
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
