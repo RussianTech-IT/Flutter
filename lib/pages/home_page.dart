@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.white,
                             ),
                           ),
-                          Icon(Icons.more_horiz, color: Colors.white),
+                          Icon(Icons.computer, color: Colors.white),
                         ],
                       ),
                       SizedBox(height: 25),
@@ -195,4 +195,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+void test_search() {
+  print("Text");
 }
