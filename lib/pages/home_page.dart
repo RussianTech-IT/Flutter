@@ -10,6 +10,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // navigation
+  // int _selectedIndex = 0;
+
+  // List<Widget> _pages = [
+  //   HomePage(),
+  // ];
+
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  // }
+
+
   // Add a TextEditingController for the search field
   final TextEditingController _searchController = TextEditingController();
 
@@ -55,11 +69,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey[300],
+        elevation: 0,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Books'),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
         ],
+        onTap:(value) {
+          print("clicked navigator ✅");
+        },
       ),
       body: SafeArea(
         child: Column(
@@ -161,28 +180,30 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: 25),
                       // list languages
                       Expanded(
-                        child: ListView.builder(
-                          itemCount: _searchResults.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final language = _searchResults[index];
-                            return ListTile(
-                              leading: Icon(language['icon'],
-                                  size: 50, color: Colors.white),
-                              title: Text(
-                                language['name'],
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.white),
-                              ),
-                              subtitle: Text(
-                                'Введение в ${language['name']}',
-                                style: TextStyle(
-                                  color: Colors.white,
+                        child: Container(
+                          child: ListView.builder(
+                            itemCount: _searchResults.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final language = _searchResults[index];
+                              return ListTile(
+                                leading: Icon(language['icon'],
+                                    size: 50, color: Colors.white),
+                                title: Text(
+                                  language['name'],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
-                              ),
-                            );
-                          },
+                                subtitle: Text(
+                                  'Введение в ${language['name']}',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ],
