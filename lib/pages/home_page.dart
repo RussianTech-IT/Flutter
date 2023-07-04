@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rutech_mobile/models/languagesList.dart';
+import 'package:rutech_mobile/pages/about_page.dart';
 import '../utils/search.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
 
   // Add a TextEditingController for the search field
   final TextEditingController _searchController = TextEditingController();
+
+  String resTest = ""; // for test
 
   // Add a list to store the search results
   List<Map<String, dynamic>> _searchResults = [];
@@ -63,21 +66,57 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // bottom el
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Books',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: About',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    // for test
+
+    if (index == 0) {
+      resTest = "Home";
+    } else if (index == 1) {
+      resTest = "Books";
+    } else if (index == 2) {
+      resTest = "About";
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => AboutPage()));
+    }
+    print('Clicked Bottom Navigator ${resTest} element ✅');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
         elevation: 0,
-        items: [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Books'),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
         ],
-        onTap: (value) {
-          print("clicked navigator ✅");
-        },
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black,
+        onTap: _onItemTapped,
       ),
       body: SafeArea(
         child: Column(
