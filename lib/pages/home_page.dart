@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   //   });
   // }
 
-
   // Add a TextEditingController for the search field
   final TextEditingController _searchController = TextEditingController();
 
@@ -76,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Books'),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
         ],
-        onTap:(value) {
+        onTap: (value) {
           print("clicked navigator ✅");
         },
       ),
@@ -178,6 +177,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       SizedBox(height: 25),
+
                       // list languages
                       Expanded(
                         child: Container(
@@ -185,20 +185,24 @@ class _HomePageState extends State<HomePage> {
                             itemCount: _searchResults.length,
                             itemBuilder: (BuildContext context, int index) {
                               final language = _searchResults[index];
-                              return ListTile(
-                                leading: Icon(language['icon'],
-                                    size: 50, color: Colors.white),
-                                title: Text(
-                                  language['name'],
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      color: Colors.white),
-                                ),
-                                subtitle: Text(
-                                  'Введение в ${language['name']}',
-                                  style: TextStyle(
-                                    color: Colors.white,
+                              return Container(
+                                // color: Colors.black,
+                                padding: EdgeInsets.symmetric(vertical: 10),
+                                child: ListTile(
+                                  leading: Icon(language['icon'],
+                                      size: 50, color: Colors.white),
+                                  title: Text(
+                                    language['name'],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: Colors.white),
+                                  ),
+                                  subtitle: Text(
+                                    'Введение в ${language['name']}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               );
@@ -206,6 +210,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
+
+                      
                     ],
                   ),
                 ),
@@ -221,3 +227,12 @@ class _HomePageState extends State<HomePage> {
 void test_search() {
   print("Text");
 }
+
+/*
+  {'name': 'JavaScript', 'icon': Icons.code},
+  {'name': 'Python', 'icon': Icons.code},
+  {'name': 'Java', 'icon': Icons.code},
+  {'name': 'C++', 'icon': Icons.code},
+  {'name': 'Swift', 'icon': Icons.code},
+  {'name': 'Ruby', 'icon': Icons.code},
+*/
