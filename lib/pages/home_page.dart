@@ -32,16 +32,6 @@ class _HomePageState extends State<HomePage> {
   // Add a list to store the search results
   List<Map<String, dynamic>> _searchResults = [];
 
-  // Define your languages list here
-  final List<Map<String, dynamic>> _languages = [
-    {'name': 'JavaScript', 'icon': Icons.code},
-    {'name': 'Python', 'icon': Icons.code},
-    {'name': 'Java', 'icon': Icons.code},
-    {'name': 'C++', 'icon': Icons.code},
-    {'name': 'Swift', 'icon': Icons.code},
-    {'name': 'Ruby', 'icon': Icons.code},
-  ];
-
   LanguagesList ls = LanguagesList();
 
   @override

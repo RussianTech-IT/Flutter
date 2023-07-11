@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rutech_mobile/pages/home_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -9,8 +10,9 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  String resTest = "";
-  // bottom el
+  String main_text =
+      "Russian Tech - это проект, который даёт возможность обучаться программированию новичкам бесплатно, у нас есть социальные сети, сайт, на котором вы можете изучить кучу материалов, а так же в социальных сетях мы делимся новыми фишками и технологиями!";
+  String resTest = '';
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -33,27 +35,31 @@ class _AboutPageState extends State<AboutPage> {
     setState(() {
       _selectedIndex = index;
     });
-    // for test
 
     if (index == 0) {
-      resTest = "Home";
+      resTest = 'Home';
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => HomePage()));
     } else if (index == 1) {
-      resTest = "Books";
+      resTest = 'Books';
     } else if (index == 2) {
-      resTest = "About";
+      resTest = 'About';
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => AboutPage()));
     }
-    print('Clicked Bottom Navigator ${resTest} element ✅');
+    print('Clicked Bottom Navigator $resTest element ✅');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('About Page'),
+      backgroundColor: Color.fromRGBO(22, 22, 36, 0.9),
+      appBar: AppBar(
+        title: Text(
+          'About Russian Tech',
+          style: TextStyle(fontWeight: FontWeight.normal),
+        ),
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -66,6 +72,30 @@ class _AboutPageState extends State<AboutPage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
         onTap: _onItemTapped,
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    child: Text(
+                      main_text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
