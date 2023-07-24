@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devicon/flutter_devicon.dart';
+
 class LanguagesList {
   final List<Map<String, dynamic>> languages = [
     {'name': 'JavaScript', 'icon': FlutterDEVICON.javascript_plain},
@@ -14,6 +15,6 @@ class LanguagesList {
     {'name': 'Vue.js', 'icon': FlutterDEVICON.vuejs_plain}, // Add: Vue.js
     {'name': 'React', 'icon': FlutterDEVICON.react_original}, // Add: React
   ];
-  
+
   List<Map<String, dynamic>> get _languages => languages;
 }

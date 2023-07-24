@@ -53,7 +53,7 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(22, 22, 36, 0.9),
+      backgroundColor: Color.fromRGBO(32, 27, 57, 1),
       appBar: AppBar(
         title: Text(
           'About Russian Tech',

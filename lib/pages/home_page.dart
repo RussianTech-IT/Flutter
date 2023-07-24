@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rutech_mobile/models/languagesList.dart';
 import 'package:rutech_mobile/pages/about_page.dart';
+import '../utils/BottomNavBar.dart';
 import '../utils/search.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,19 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // navigation
-  // int _selectedIndex = 0;
-
-  // List<Widget> _pages = [
-  //   HomePage(),
-  // ];
-
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
-
   // Add a TextEditingController for the search field
   final TextEditingController _searchController = TextEditingController();
 
@@ -56,58 +44,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // bottom el
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Books',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: About',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // for test
-
-    if (index == 0) {
-      resTest = "Home";
-    } else if (index == 1) {
-      resTest = "Books";
-    } else if (index == 2) {
-      resTest = "About";
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => AboutPage()));
-    }
-    print('Clicked Bottom Navigator ${resTest} element ✅');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Books'),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'About'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
-      ),
+      backgroundColor: const Color.fromRGBO(124, 77, 255, 1),
+      bottomNavigationBar: BottomBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -250,16 +191,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-void test_search() {
-  print("Text");
-}
-
-/*
-  {'name': 'JavaScript', 'icon': Icons.code},
-  {'name': 'Python', 'icon': Icons.code},
-  {'name': 'Java', 'icon': Icons.code},
-  {'name': 'C++', 'icon': Icons.code},
-  {'name': 'Swift', 'icon': Icons.code},
-  {'name': 'Ruby', 'icon': Icons.code},
-*/
